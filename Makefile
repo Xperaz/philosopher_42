@@ -1,6 +1,6 @@
 HEADER=philosophers.h
 
-SRC_FILE = main.c errors.c utils.c
+SRC_FILE = main.c errors.c utils.c ft_atoi.c
 
 NAME = philo
 OBJ_FILE = $(SRC_FILE:.c=.o)

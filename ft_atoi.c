@@ -1,47 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aouhadou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/20 12:25:31 by aouhadou          #+#    #+#             */
-/*   Updated: 2022/05/20 12:28:45 by aouhadou         ###   ########.fr       */
+/*   Created: 2022/05/20 12:54:00 by aouhadou          #+#    #+#             */
+/*   Updated: 2022/05/20 12:54:17 by aouhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int	is_digit(char *str)
+static int	is_w_space(char c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] >= '0' && str[i] <= '9')
-			return (1);
-		i++;
-	}
-	return (0);
+	return (c == 32 || (c >= 9 && c <= 13));
 }
 
-int	check_args(int ac, char **av)
+int	ft1_atoi(const char *str)
 {
+	int	res;
+	int	sign;
 	int	i;
 
-	i = 1;
-	if (ac < 5 || ac > 6)
-		return (0);
-	while (i < ac)
-	{
-		if (!is_digit(av[i]))
-			return (0);
-		if ((ft1_atoi(av[i])) <= 0)
-			return (0);
-		if ((ft1_atoi(av[i])) > 2147483647)
-			return (0);
+	if (!str)
+		return (-1);
+	res = 0;
+	i = 0;
+	while (is_w_space(str[i]))
 		i++;
-	}
-	return (1);
+	sign = 1 - (str[i] == '-') * 2;
+	i += (str[i] == '+' || str[i] == '-');
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
+		res = res * 10 + str[i++] - '0';
+	return (sign * res);
 }
