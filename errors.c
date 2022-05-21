@@ -37,9 +37,9 @@ int	check_args(int ac, char **av)
 	{
 		if (!is_digit(av[i]))
 			return (0);
-		if ((ft1_atoi(av[i])) <= 0)
+		if ((ft_atoi(av[i])) <= 0)
 			return (0);
-		if ((ft1_atoi(av[i])) > 2147483647)
+		if ((ft_atoi(av[i])) > 2147483647)
 			return (0);
 		i++;
 	}

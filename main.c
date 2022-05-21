@@ -86,12 +86,12 @@ t_info	init(char **av, pthread_mutex_t **forks, t_philo **ph)
 	t_info	pinfo;
 	int		i;
 
-	memset(&pinfo, 0, sizeof(pinfo));
-	pinfo.n = ft1_atoi(av[1]);
-	pinfo.time_to_die = (useconds_t)ft1_atoi(av[2]);
-	pinfo.time_to_eat = (useconds_t)ft1_atoi(av[3]);
-	pinfo.time_to_sleep = (useconds_t)ft1_atoi(av[4]);
-	pinfo.max = ft1_atoi(av[5]);
+	//memset(&pinfo, 0, sizeof(pinfo));
+	pinfo.n = ft_atoi(av[1]);
+	pinfo.time_to_die = (useconds_t)ft_atoi(av[2]);
+	pinfo.time_to_eat = (useconds_t)ft_atoi(av[3]);
+	pinfo.time_to_sleep = (useconds_t)ft_atoi(av[4]);
+	pinfo.max = ft_atoi(av[5]);
 	*forks = (pthread_mutex_t *)malloc(pinfo.n * sizeof(pthread_mutex_t));
 	*ph = (t_philo *)malloc(pinfo.n * sizeof(t_philo));
 	if (!*forks || !*ph)
@@ -126,5 +126,7 @@ int	main(int ac, char **av)
 	pinfo.start = get_current_time();
 	create_philo(&pinfo, ph, forks);
 	pthread_mutex_destroy(&(pinfo.print));
+	free(ph);
+	free(forks);
 	return (0);
 }

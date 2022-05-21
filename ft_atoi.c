@@ -17,7 +17,7 @@ static int	is_w_space(char c)
 	return (c == 32 || (c >= 9 && c <= 13));
 }
 
-int	ft1_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	res;
 	int	sign;

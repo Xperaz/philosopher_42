@@ -46,9 +46,8 @@ typedef struct philos
 //check errors
 int				is_digit(char *str);
 int				check_args(int ac, char **av);
-
 //parsing
-int				ft1_atoi(const char *str);
+int				ft_atoi(const char *str);
 unsigned long	get_current_time(void);
 unsigned long	get_time(unsigned long start);
 void			ft_print(char *str, t_philo *ph);
