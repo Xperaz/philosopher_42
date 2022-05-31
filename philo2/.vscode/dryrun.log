@@ -1,9 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/aouhadou/Desktop/philo/philo2'
-gcc -Wall -Wextra -Werror  -c main.c
-gcc -Wall -Wextra -Werror  -c errors.c
-gcc -Wall -Wextra -Werror  -c utils.c
-gcc -Wall -Wextra -Werror  -c ft_atoi.c
-gcc -Wall -Wextra -Werror main.o errors.o utils.o ft_atoi.o -o philo
-make: Leaving directory `/Users/aouhadou/Desktop/philo/philo2'
- 
